@@ -2,5 +2,17 @@
   "name": "RxJs DevTools",
   "description": "RxJs DevTools Chrome Extension",
   "version": "1.0",
-  "manifest_version": 3
+  "manifest_version": 3,
+  "background": {
+    "service_worker": "/src/background.js"
+  },
+  "permissions": [],
+  "action": {
+    "default_icon": {
+      "512": "/src/assets/icons/icon-512x512.png"
+    }
+  },
+  "icons": {
+    "512": "/src/assets/icons/icon-512x512.png"
+  }
 }
