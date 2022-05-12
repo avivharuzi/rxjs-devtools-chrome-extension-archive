@@ -1,0 +1,22 @@
+{
+  "name": "rxjs-devtools",
+  "version": "1.0.0",
+  "description": "RxJs DevTools Chrome Extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/avivharuzi/rxjs-devtools.git"
+  },
+  "author": "Aviv Haruzi <avivharuzi@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/avivharuzi/rxjs-devtools/issues"
+  },
+  "homepage": "https://github.com/avivharuzi/rxjs-devtools#readme",
+  "dependencies": {
+    "prettier": "^2.6.2"
+  }
+}
