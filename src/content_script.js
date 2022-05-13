@@ -1,5 +1,7 @@
 'use strict';
 
+const SOURCE = 'rxjs-devtools-extension';
+
 const backgroundConnection = chrome.runtime.connect({
   name: 'content',
 });
@@ -8,7 +10,7 @@ backgroundConnection.onMessage.addListener((message) => {
   window.postMessage(
     {
       message,
-      source: 'rxjs-devtools-extension',
+      source: SOURCE,
     },
     '*'
   );
@@ -26,7 +28,7 @@ window.addEventListener('message', (event) => {
   if (
     typeof data !== 'object' ||
     data === null ||
-    data.source !== 'rxjs-devtools-extension' ||
+    data.source !== SOURCE ||
     !data.message
   ) {
     return;

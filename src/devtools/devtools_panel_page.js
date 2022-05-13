@@ -7,3 +7,7 @@ const backgroundConnection = chrome.runtime.connect({
 backgroundConnection.onMessage.addListener((message) => {
   console.log('devtools_panel_page', message);
 });
+
+const sendMessage = (message) => {
+  backgroundConnection.postMessage(message);
+};
