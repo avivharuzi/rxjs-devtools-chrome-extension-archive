@@ -1,52 +1,57 @@
 'use strict';
 
-const connections = {};
+const currentConnections = {};
 
-chrome.runtime.onConnect.addListener((port) => {
-  const extensionListener = (message, sender, sendResponse) => {
-    // The original connection event doesn't include the tab ID of the
-    // DevTools page, so we need to send it explicitly.
-    if (message.name == 'init') {
-      connections[message.tabId] = port;
+chrome.runtime.onConnect.addListener((connection) => {
+  const { tabId, sourceName, destinationName } = getConnectionInfo(connection);
 
-      return;
+  let currentConnection = currentConnections[tabId];
+  if (!currentConnection) {
+    currentConnections[tabId] = {
+      panel: undefined,
+      content: undefined,
+    };
+    currentConnection = currentConnections[tabId];
+  }
+  currentConnection[sourceName] = connection;
+
+  const listener = (message) => {
+    const currentConnectionDestination = currentConnection[destinationName];
+
+    if (currentConnectionDestination) {
+      currentConnectionDestination.postMessage(message);
+    } else {
+      console.error(
+        `Cannot post message since the destination has not yet connected`
+      );
     }
-
-    // other message handling
   };
 
-  // Listen to messages sent from the DevTools page
-  port.onMessage.addListener(extensionListener);
+  connection.onMessage.addListener(listener);
 
-  port.onDisconnect.addListener((port) => {
-    port.onMessage.removeListener(extensionListener);
+  connection.onDisconnect.addListener(() => {
+    currentConnection[sourceName] = undefined;
 
-    const tabs = Object.keys(connections);
-    for (let i = 0, len = tabs.length; i < len; i++) {
-      if (connections[tabs[i]] == port) {
-        delete connections[tabs[i]];
-
-        break;
-      }
-    }
+    connection.onMessage.removeListener(listener);
   });
 });
 
-// Receive message from content script and relay to the devTools page for the
-// current tab
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  // Messages from content scripts should have sender.tab set
-  if (sender.tab) {
-    const tabId = sender.tab.id;
+const getConnectionInfo = (connection) => {
+  const panelMatches = connection.name.match(/panel@(\d+)/);
 
-    if (tabId in connections) {
-      connections[tabId].postMessage(request);
-    } else {
-      console.log('Tab not found in connection list.');
-    }
-  } else {
-    console.log('sender.tab not defined.');
+  if (panelMatches && panelMatches[1]) {
+    const tabId = panelMatches[1];
+
+    return {
+      tabId,
+      sourceName: 'panel',
+      destinationName: 'content',
+    };
   }
 
-  return true;
-});
+  return {
+    tabId: connection.sender.tab.id.toString(),
+    sourceName: 'content',
+    destinationName: 'panel',
+  };
+};

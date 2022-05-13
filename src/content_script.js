@@ -1,5 +1,19 @@
 'use strict';
 
+const backgroundConnection = chrome.runtime.connect({
+  name: 'content',
+});
+
+backgroundConnection.onMessage.addListener((message) => {
+  window.postMessage(
+    {
+      message,
+      source: 'rxjs-devtools-extension',
+    },
+    '*'
+  );
+});
+
 window.addEventListener('message', (event) => {
   // Only accept messages from the same frame
   if (event.source !== window) {
@@ -18,5 +32,5 @@ window.addEventListener('message', (event) => {
     return;
   }
 
-  chrome.runtime.sendMessage(data.message);
+  backgroundConnection.postMessage(data.message);
 });
