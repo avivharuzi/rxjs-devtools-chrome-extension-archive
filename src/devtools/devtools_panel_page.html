@@ -10,6 +10,51 @@
     <title>RxJs DevTools Panel Page</title>
     <link rel="stylesheet" href="devtools_panel_page.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="stats">
+      <div class="stats__column">
+        <div class="stats__column_bar stats--next font-size-36" id="statsNext">
+          0
+        </div>
+        <div class="stats__column_label font-size-20">Next</div>
+      </div>
+      <div class="stats__column">
+        <div
+          class="stats__column_bar stats--error font-size-36"
+          id="statsError"
+        >
+          0
+        </div>
+        <div class="stats__column_label font-size-20">Error</div>
+      </div>
+      <div class="stats__column">
+        <div
+          class="stats__column_bar stats--complete font-size-36"
+          id="statsComplete"
+        >
+          0
+        </div>
+        <div class="stats__column_label font-size-20">Complete</div>
+      </div>
+      <div class="stats__column">
+        <div
+          class="stats__column_bar stats--subscribe font-size-36"
+          id="statsSubscribe"
+        >
+          0
+        </div>
+        <div class="stats__column_label font-size-20">Subscribe</div>
+      </div>
+      <div class="stats__column">
+        <div
+          class="stats__column_bar stats--unsubscribe font-size-36"
+          id="statsUnsubscribe"
+        >
+          0
+        </div>
+        <div class="stats__column_label font-size-20">Unsubscribe</div>
+      </div>
+    </div>
+  </body>
   <script src="devtools_panel_page.js"></script>
 </html>

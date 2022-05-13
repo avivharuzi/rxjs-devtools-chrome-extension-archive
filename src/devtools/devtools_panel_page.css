@@ -1,0 +1,321 @@
+:root {
+  /* ======================================== */
+  /* Colors */
+  /* ======================================== */
+  --color-white: #fff;
+  --color-black: #000;
+
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-200: #bbf7d0;
+  --color-success-300: #86efac;
+  --color-success-400: #4ade80;
+  --color-success-500: #22c55e;
+  --color-success-600: #16a34a;
+  --color-success-700: #15803d;
+  --color-success-800: #166534;
+  --color-success-900: #14532d;
+
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-200: #fecaca;
+  --color-error-300: #fca5a5;
+  --color-error-400: #f87171;
+  --color-error-500: #ef4444;
+  --color-error-600: #dc2626;
+  --color-error-700: #b91c1c;
+  --color-error-800: #991b1b;
+  --color-error-900: #7f1d1d;
+
+  --color-warning-50: #fefce8;
+  --color-warning-100: #fef9c3;
+  --color-warning-200: #fef08a;
+  --color-warning-300: #fde047;
+  --color-warning-400: #facc15;
+  --color-warning-500: #eab308;
+  --color-warning-600: #ca8a04;
+  --color-warning-700: #a16207;
+  --color-warning-800: #854d0e;
+  --color-warning-900: #713f12;
+
+  --color-info-50: #ecfeff;
+  --color-info-100: #cffafe;
+  --color-info-200: #a5f3fc;
+  --color-info-300: #67e8f9;
+  --color-info-400: #22d3ee;
+  --color-info-500: #06b6d4;
+  --color-info-600: #0891b2;
+  --color-info-700: #0e7490;
+  --color-info-800: #155e75;
+  --color-info-900: #164e63;
+
+  /* ======================================== */
+  /* Spaces */
+  /* ======================================== */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-96: 96px;
+  --space-128: 128px;
+  --space-192: 192px;
+  --space-256: 256px;
+  --space-384: 384px;
+  --space-512: 512px;
+  --space-640: 640px;
+  --space-768: 768px;
+
+  /* ======================================== */
+  /* Border Radius */
+  /* ======================================== */
+  --border-radius-rectangle: 4px;
+  --border-radius-circle: 100%;
+}
+
+/* ======================================== */
+/* Font Sizes */
+/* ======================================== */
+.font-size-12 {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.font-size-14 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.font-size-16 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.font-size-18 {
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.font-size-20 {
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.font-size-24 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.font-size-30 {
+  font-size: 30px;
+  line-height: 36px;
+}
+
+.font-size-36 {
+  font-size: 36px;
+  line-height: 40px;
+}
+
+.font-size-48 {
+  font-size: 48px;
+  line-height: 1;
+}
+
+.font-size-60 {
+  font-size: 60px;
+  line-height: 1;
+}
+
+.font-size-72 {
+  font-size: 72px;
+  line-height: 1;
+}
+
+.font-size-96 {
+  font-size: 96px;
+  line-height: 1;
+}
+
+.font-size-128 {
+  font-size: 128px;
+  line-height: 1;
+}
+
+/* ======================================== */
+/* CSS Reset */
+/* ======================================== */
+/***
+    The new CSS reset - version 1.6.0 (last updated 29.4.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly. */
+:where([contenteditable]) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable='true']) {
+  -webkit-user-drag: element;
+}
+
+/* ======================================== */
+/* Global */
+/* ======================================== */
+* {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-neutral-900);
+  background-color: var(--color-neutral-50);
+  font-family: AppleSystemUIFont, sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: var(--space-8);
+}
+
+.stats {
+  display: flex;
+  width: 50%;
+  height: 100%;
+  gap: var(--space-16);
+}
+
+.stats__column {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.stats__column_bar {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  border-radius: var(--border-radius-rectangle);
+}
+
+.stats__column_label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-16);
+  color: var(--color-neutral-700);
+}
+
+.stats--next {
+  background-color: var(--color-warning-500);
+}
+
+.stats--error {
+  background-color: var(--color-error-500);
+}
+
+.stats--complete {
+  background-color: var(--color-success-500);
+}
+
+.stats--subscribe {
+  background-color: var(--color-info-500);
+}
+
+.stats--unsubscribe {
+  background-color: var(--color-neutral-500);
+}
