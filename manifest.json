@@ -1,14 +1,24 @@
 {
   "name": "RxJs DevTools",
+  "short_name": "RxJs DevTools",
   "description": "RxJs DevTools Chrome Extension",
   "version": "1.0",
   "manifest_version": 3,
+  "homepage_url": "https://github.com/avivharuzi/rxjs-devtools",
   "icons": {
     "512": "src/assets/icons/icon-512x512.png"
   },
   "background": {
     "service_worker": "src/background.js"
   },
+  "content_scripts": [
+    {
+      "all_frames": false,
+      "js": ["src/content_script.js"],
+      "matches": ["<all_urls>"],
+      "run_at": "document_start"
+    }
+  ],
   "devtools_page": "src/devtools/devtools_page.html",
   "permissions": ["tabs"],
   "action": {
