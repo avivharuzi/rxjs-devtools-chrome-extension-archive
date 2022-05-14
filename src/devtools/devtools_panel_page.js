@@ -23,11 +23,31 @@ const sendMessage = (message) => {
 };
 
 const handleStats = (data) => {
-  document.getElementById('statsNext').textContent = data.next;
-  document.getElementById('statsError').textContent = data.error;
-  document.getElementById('statsComplete').textContent = data.complete;
-  document.getElementById('statsSubscribe').textContent = data.subscribe;
-  document.getElementById('statsUnsubscribe').textContent = data.unsubscribe;
+  const min = Math.min(...Object.values(data));
+  const max = Math.max(...Object.values(data));
+
+  Object.entries(data).forEach(([key, value]) => {
+    document.getElementById(
+      `stats${key[0].toUpperCase()}${key.slice(1)}`
+    ).textContent = value.toString();
+
+    document.querySelector(`.stats--${key}`).style.height = getPercent(
+      value,
+      min,
+      max
+    );
+  });
+};
+
+const getPercent = (numberValue, minNumberValue, maxNumberValue) => {
+  const diff = maxNumberValue - minNumberValue;
+  const percent = Math.floor((numberValue / diff) * 100);
+
+  if (percent < 10) {
+    return `10%`;
+  }
+
+  return `${percent}%`;
 };
 
 sendMessage({
