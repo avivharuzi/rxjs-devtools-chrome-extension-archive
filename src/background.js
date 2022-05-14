@@ -21,7 +21,7 @@ chrome.runtime.onConnect.addListener((connection) => {
     if (currentConnectionDestination) {
       currentConnectionDestination.postMessage(message);
     } else {
-      console.error(
+      console.log(
         `Cannot post message since the destination has not yet connected`
       );
     }
