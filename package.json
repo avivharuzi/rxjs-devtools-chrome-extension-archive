@@ -1,5 +1,5 @@
 {
-  "name": "rxjs-devtools",
+  "name": "rxjs-devtools-chrome-extension",
   "version": "1.0.0",
   "description": "RxJs DevTools Chrome Extension",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/avivharuzi/rxjs-devtools.git"
+    "url": "git+https://github.com/avivharuzi/rxjs-devtools-chrome-extension.git"
   },
   "author": "Aviv Haruzi <avivharuzi@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/avivharuzi/rxjs-devtools/issues"
+    "url": "https://github.com/avivharuzi/rxjs-devtools-chrome-extension/issues"
   },
-  "homepage": "https://github.com/avivharuzi/rxjs-devtools#readme",
+  "homepage": "https://github.com/avivharuzi/rxjs-devtools-chrome-extension#readme",
   "dependencies": {
     "prettier": "^2.6.2"
   }

@@ -4,7 +4,7 @@
   "description": "RxJs DevTools Chrome Extension",
   "version": "1.0",
   "manifest_version": 3,
-  "homepage_url": "https://github.com/avivharuzi/rxjs-devtools",
+  "homepage_url": "https://github.com/avivharuzi/rxjs-devtools-chrome-extension",
   "icons": {
     "512": "src/assets/icons/icon-512x512.png"
   },
